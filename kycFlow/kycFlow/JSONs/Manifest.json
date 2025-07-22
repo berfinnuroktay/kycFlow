@@ -8,5 +8,10 @@
         "code": "DE",
         "name": "Germany",
         "configFile": "kyc_de.json"
+    },
+    {
+        "code": "TR",
+        "name": "Türkiye",
+        "configFile": "kyc_tr.json"
     }
 ]
