@@ -1,0 +1,12 @@
+[
+    {
+        "code": "NL",
+        "name": "Netherlands",
+        "configFile": "kyc_nl.json"
+    },
+    {
+        "code": "DE",
+        "name": "Germany",
+        "configFile": "kyc_de.json"
+    }
+]

@@ -6,6 +6,19 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		4CAE8C092E2FCBFC00B69BA8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE8C042E2FCBFC00B69BA8 /* ContentView.swift */; };
+		4CAE8C0A2E2FCBFC00B69BA8 /* kycFlowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE8C062E2FCBFC00B69BA8 /* kycFlowApp.swift */; };
+		4CAE8C0B2E2FCBFC00B69BA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CAE8C032E2FCBFC00B69BA8 /* Assets.xcassets */; };
+		4CAE8C0D2E2FCBFC00B69BA8 /* Manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CAE8C072E2FCBFC00B69BA8 /* Manifest.json */; };
+		4CAE8C102E2FCC0000B69BA8 /* kycFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE8C0E2E2FCC0000B69BA8 /* kycFlowTests.swift */; };
+		4CAE8C142E2FCC0400B69BA8 /* kycFlowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE8C112E2FCC0400B69BA8 /* kycFlowUITests.swift */; };
+		4CAE8C152E2FCC0400B69BA8 /* kycFlowUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE8C122E2FCC0400B69BA8 /* kycFlowUITestsLaunchTests.swift */; };
+		4CAE8C182E2FCC2500B69BA8 /* kyc_nl.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CAE8C172E2FCC1000B69BA8 /* kyc_nl.json */; };
+		4CAE8C1C2E2FCCA400B69BA8 /* kyc_de.json in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE8C1B2E2FCCA100B69BA8 /* kyc_de.json */; };
+		4CAE8C1E2E2FCD0200B69BA8 /* kyc_tr.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CAE8C1D2E2FCCFA00B69BA8 /* kyc_tr.json */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		4C77EB1C2E2E4510008CBC6C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,38 +40,18 @@
 		4C77EB0B2E2E450E008CBC6C /* kycFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kycFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C77EB1B2E2E4510008CBC6C /* kycFlowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kycFlowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C77EB252E2E4510008CBC6C /* kycFlowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kycFlowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CAE8C032E2FCBFC00B69BA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4CAE8C042E2FCBFC00B69BA8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4CAE8C052E2FCBFC00B69BA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CAE8C062E2FCBFC00B69BA8 /* kycFlowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kycFlowApp.swift; sourceTree = "<group>"; };
+		4CAE8C072E2FCBFC00B69BA8 /* Manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Manifest.json; sourceTree = "<group>"; };
+		4CAE8C0E2E2FCC0000B69BA8 /* kycFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kycFlowTests.swift; sourceTree = "<group>"; };
+		4CAE8C112E2FCC0400B69BA8 /* kycFlowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kycFlowUITests.swift; sourceTree = "<group>"; };
+		4CAE8C122E2FCC0400B69BA8 /* kycFlowUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kycFlowUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4CAE8C172E2FCC1000B69BA8 /* kyc_nl.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = kyc_nl.json; sourceTree = "<group>"; };
+		4CAE8C1B2E2FCCA100B69BA8 /* kyc_de.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = kyc_de.json; sourceTree = "<group>"; };
+		4CAE8C1D2E2FCCFA00B69BA8 /* kyc_tr.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = kyc_tr.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		4C77EB512E2E5057008CBC6C /* Exceptions for "kycFlow" folder in "kycFlow" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 4C77EB0A2E2E450E008CBC6C /* kycFlow */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		4C77EB0D2E2E450E008CBC6C /* kycFlow */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				4C77EB512E2E5057008CBC6C /* Exceptions for "kycFlow" folder in "kycFlow" target */,
-			);
-			path = kycFlow;
-			sourceTree = "<group>";
-		};
-		4C77EB1E2E2E4510008CBC6C /* kycFlowTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = kycFlowTests;
-			sourceTree = "<group>";
-		};
-		4C77EB282E2E4510008CBC6C /* kycFlowUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = kycFlowUITests;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		4C77EB082E2E450E008CBC6C /* Frameworks */ = {
@@ -88,9 +81,9 @@
 		4C77EB022E2E450E008CBC6C = {
 			isa = PBXGroup;
 			children = (
-				4C77EB0D2E2E450E008CBC6C /* kycFlow */,
-				4C77EB1E2E2E4510008CBC6C /* kycFlowTests */,
-				4C77EB282E2E4510008CBC6C /* kycFlowUITests */,
+				4CAE8C082E2FCBFC00B69BA8 /* kycFlow */,
+				4CAE8C0F2E2FCC0000B69BA8 /* kycFlowTests */,
+				4CAE8C132E2FCC0400B69BA8 /* kycFlowUITests */,
 				4C77EB0C2E2E450E008CBC6C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,6 +96,46 @@
 				4C77EB252E2E4510008CBC6C /* kycFlowUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		4CAE8C082E2FCBFC00B69BA8 /* kycFlow */ = {
+			isa = PBXGroup;
+			children = (
+				4CAE8C162E2FCC0700B69BA8 /* JSONs */,
+				4CAE8C032E2FCBFC00B69BA8 /* Assets.xcassets */,
+				4CAE8C042E2FCBFC00B69BA8 /* ContentView.swift */,
+				4CAE8C052E2FCBFC00B69BA8 /* Info.plist */,
+				4CAE8C062E2FCBFC00B69BA8 /* kycFlowApp.swift */,
+			);
+			path = kycFlow;
+			sourceTree = "<group>";
+		};
+		4CAE8C0F2E2FCC0000B69BA8 /* kycFlowTests */ = {
+			isa = PBXGroup;
+			children = (
+				4CAE8C0E2E2FCC0000B69BA8 /* kycFlowTests.swift */,
+			);
+			path = kycFlowTests;
+			sourceTree = "<group>";
+		};
+		4CAE8C132E2FCC0400B69BA8 /* kycFlowUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4CAE8C112E2FCC0400B69BA8 /* kycFlowUITests.swift */,
+				4CAE8C122E2FCC0400B69BA8 /* kycFlowUITestsLaunchTests.swift */,
+			);
+			path = kycFlowUITests;
+			sourceTree = "<group>";
+		};
+		4CAE8C162E2FCC0700B69BA8 /* JSONs */ = {
+			isa = PBXGroup;
+			children = (
+				4CAE8C1D2E2FCCFA00B69BA8 /* kyc_tr.json */,
+				4CAE8C1B2E2FCCA100B69BA8 /* kyc_de.json */,
+				4CAE8C172E2FCC1000B69BA8 /* kyc_nl.json */,
+				4CAE8C072E2FCBFC00B69BA8 /* Manifest.json */,
+			);
+			path = JSONs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,9 +152,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				4C77EB0D2E2E450E008CBC6C /* kycFlow */,
 			);
 			name = kycFlow;
 			packageProductDependencies = (
@@ -143,9 +173,6 @@
 			dependencies = (
 				4C77EB1D2E2E4510008CBC6C /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				4C77EB1E2E2E4510008CBC6C /* kycFlowTests */,
-			);
 			name = kycFlowTests;
 			packageProductDependencies = (
 			);
@@ -165,9 +192,6 @@
 			);
 			dependencies = (
 				4C77EB272E2E4510008CBC6C /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				4C77EB282E2E4510008CBC6C /* kycFlowUITests */,
 			);
 			name = kycFlowUITests;
 			packageProductDependencies = (
@@ -225,6 +249,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CAE8C0B2E2FCBFC00B69BA8 /* Assets.xcassets in Resources */,
+				4CAE8C0D2E2FCBFC00B69BA8 /* Manifest.json in Resources */,
+				4CAE8C182E2FCC2500B69BA8 /* kyc_nl.json in Resources */,
+				4CAE8C1E2E2FCD0200B69BA8 /* kyc_tr.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +277,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CAE8C092E2FCBFC00B69BA8 /* ContentView.swift in Sources */,
+				4CAE8C0A2E2FCBFC00B69BA8 /* kycFlowApp.swift in Sources */,
+				4CAE8C1C2E2FCCA400B69BA8 /* kyc_de.json in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CAE8C102E2FCC0000B69BA8 /* kycFlowTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +295,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CAE8C142E2FCC0400B69BA8 /* kycFlowUITests.swift in Sources */,
+				4CAE8C152E2FCC0400B69BA8 /* kycFlowUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
