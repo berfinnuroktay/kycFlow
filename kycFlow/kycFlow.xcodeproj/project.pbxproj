@@ -21,6 +21,7 @@
 		4CAE8C232E2FCE5500B69BA8 /* KycCountryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE8C222E2FCE4C00B69BA8 /* KycCountryInfo.swift */; };
 		4CAE8C252E2FD44000B69BA8 /* LoadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE8C242E2FD43E00B69BA8 /* LoadData.swift */; };
 		4CAE8C282E2FD56200B69BA8 /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE8C272E2FD55E00B69BA8 /* DataDecoder.swift */; };
+		4CE01A5B2E2FE494009174E7 /* ConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE01A5A2E2FE489009174E7 /* ConfigurationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		4CAE8C222E2FCE4C00B69BA8 /* KycCountryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KycCountryInfo.swift; sourceTree = "<group>"; };
 		4CAE8C242E2FD43E00B69BA8 /* LoadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadData.swift; sourceTree = "<group>"; };
 		4CAE8C272E2FD55E00B69BA8 /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
+		4CE01A5A2E2FE489009174E7 /* ConfigurationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		4CAE8C082E2FCBFC00B69BA8 /* kycFlow */ = {
 			isa = PBXGroup;
 			children = (
+				4CE01A5A2E2FE489009174E7 /* ConfigurationManager.swift */,
 				4CAE8C262E2FD55100B69BA8 /* Utility */,
 				4CAE8C1F2E2FCDA700B69BA8 /* Models */,
 				4CAE8C162E2FCC0700B69BA8 /* JSONs */,
@@ -305,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CE01A5B2E2FE494009174E7 /* ConfigurationManager.swift in Sources */,
 				4CAE8C232E2FCE5500B69BA8 /* KycCountryInfo.swift in Sources */,
 				4CAE8C282E2FD56200B69BA8 /* DataDecoder.swift in Sources */,
 				4CAE8C212E2FCDB800B69BA8 /* CountryInfo.swift in Sources */,
