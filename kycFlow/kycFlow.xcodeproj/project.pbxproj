@@ -7,21 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4CAE8C092E2FCBFC00B69BA8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE8C042E2FCBFC00B69BA8 /* ContentView.swift */; };
+		4C917D7A2E303B11007817EB /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C917D792E303B11007817EB /* Launch Screen.storyboard */; };
+		4CAE8C092E2FCBFC00B69BA8 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE8C042E2FCBFC00B69BA8 /* RootView.swift */; };
 		4CAE8C0A2E2FCBFC00B69BA8 /* kycFlowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE8C062E2FCBFC00B69BA8 /* kycFlowApp.swift */; };
 		4CAE8C0B2E2FCBFC00B69BA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CAE8C032E2FCBFC00B69BA8 /* Assets.xcassets */; };
 		4CAE8C0D2E2FCBFC00B69BA8 /* Manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CAE8C072E2FCBFC00B69BA8 /* Manifest.json */; };
 		4CAE8C102E2FCC0000B69BA8 /* kycFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE8C0E2E2FCC0000B69BA8 /* kycFlowTests.swift */; };
 		4CAE8C142E2FCC0400B69BA8 /* kycFlowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE8C112E2FCC0400B69BA8 /* kycFlowUITests.swift */; };
 		4CAE8C152E2FCC0400B69BA8 /* kycFlowUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE8C122E2FCC0400B69BA8 /* kycFlowUITestsLaunchTests.swift */; };
-		4CAE8C182E2FCC2500B69BA8 /* kyc_nl.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CAE8C172E2FCC1000B69BA8 /* kyc_nl.json */; };
-		4CAE8C1C2E2FCCA400B69BA8 /* kyc_de.json in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE8C1B2E2FCCA100B69BA8 /* kyc_de.json */; };
 		4CAE8C1E2E2FCD0200B69BA8 /* kyc_tr.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CAE8C1D2E2FCCFA00B69BA8 /* kyc_tr.json */; };
 		4CAE8C212E2FCDB800B69BA8 /* CountryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE8C202E2FCDB300B69BA8 /* CountryInfo.swift */; };
 		4CAE8C232E2FCE5500B69BA8 /* KycCountryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE8C222E2FCE4C00B69BA8 /* KycCountryInfo.swift */; };
 		4CAE8C252E2FD44000B69BA8 /* LoadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE8C242E2FD43E00B69BA8 /* LoadData.swift */; };
 		4CAE8C282E2FD56200B69BA8 /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE8C272E2FD55E00B69BA8 /* DataDecoder.swift */; };
 		4CE01A5B2E2FE494009174E7 /* ConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE01A5A2E2FE489009174E7 /* ConfigurationManager.swift */; };
+		4CE01A5E2E2FE932009174E7 /* CountrySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE01A5D2E2FE929009174E7 /* CountrySelectionView.swift */; };
+		4CF3319F2E3016620080D0A4 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF3319E2E30165F0080D0A4 /* AppRouter.swift */; };
+		4CF331A12E30179A0080D0A4 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF331A02E3017950080D0A4 /* FormView.swift */; };
+		4CF331A42E3017C80080D0A4 /* FormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF331A32E3017C50080D0A4 /* FormViewModel.swift */; };
+		4CF331A72E3022300080D0A4 /* CountryPickerCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF331A62E3022220080D0A4 /* CountryPickerCardView.swift */; };
+		4CF331A92E3023710080D0A4 /* PrimaryButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF331A82E30236B0080D0A4 /* PrimaryButtonView.swift */; };
+		4CF331AE2E3028050080D0A4 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF331AD2E3027FD0080D0A4 /* HeaderView.swift */; };
+		4CF331AF2E302BA90080D0A4 /* kyc_nl.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CAE8C172E2FCC1000B69BA8 /* kyc_nl.json */; };
+		4CF331B32E302CCB0080D0A4 /* kyc_de.json in Resources */ = {isa = PBXBuildFile; fileRef = 4CF331B22E302CCB0080D0A4 /* kyc_de.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,22 +53,29 @@
 		4C77EB0B2E2E450E008CBC6C /* kycFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kycFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C77EB1B2E2E4510008CBC6C /* kycFlowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kycFlowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C77EB252E2E4510008CBC6C /* kycFlowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kycFlowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C917D792E303B11007817EB /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		4CAE8C032E2FCBFC00B69BA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4CAE8C042E2FCBFC00B69BA8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		4CAE8C052E2FCBFC00B69BA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CAE8C042E2FCBFC00B69BA8 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		4CAE8C062E2FCBFC00B69BA8 /* kycFlowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kycFlowApp.swift; sourceTree = "<group>"; };
 		4CAE8C072E2FCBFC00B69BA8 /* Manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Manifest.json; sourceTree = "<group>"; };
 		4CAE8C0E2E2FCC0000B69BA8 /* kycFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kycFlowTests.swift; sourceTree = "<group>"; };
 		4CAE8C112E2FCC0400B69BA8 /* kycFlowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kycFlowUITests.swift; sourceTree = "<group>"; };
 		4CAE8C122E2FCC0400B69BA8 /* kycFlowUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kycFlowUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4CAE8C172E2FCC1000B69BA8 /* kyc_nl.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = kyc_nl.json; sourceTree = "<group>"; };
-		4CAE8C1B2E2FCCA100B69BA8 /* kyc_de.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = kyc_de.json; sourceTree = "<group>"; };
 		4CAE8C1D2E2FCCFA00B69BA8 /* kyc_tr.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = kyc_tr.json; sourceTree = "<group>"; };
 		4CAE8C202E2FCDB300B69BA8 /* CountryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryInfo.swift; sourceTree = "<group>"; };
 		4CAE8C222E2FCE4C00B69BA8 /* KycCountryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KycCountryInfo.swift; sourceTree = "<group>"; };
 		4CAE8C242E2FD43E00B69BA8 /* LoadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadData.swift; sourceTree = "<group>"; };
 		4CAE8C272E2FD55E00B69BA8 /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
 		4CE01A5A2E2FE489009174E7 /* ConfigurationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationManager.swift; sourceTree = "<group>"; };
+		4CE01A5D2E2FE929009174E7 /* CountrySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionView.swift; sourceTree = "<group>"; };
+		4CF3319E2E30165F0080D0A4 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		4CF331A02E3017950080D0A4 /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
+		4CF331A32E3017C50080D0A4 /* FormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewModel.swift; sourceTree = "<group>"; };
+		4CF331A62E3022220080D0A4 /* CountryPickerCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerCardView.swift; sourceTree = "<group>"; };
+		4CF331A82E30236B0080D0A4 /* PrimaryButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonView.swift; sourceTree = "<group>"; };
+		4CF331AD2E3027FD0080D0A4 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		4CF331B22E302CCB0080D0A4 /* kyc_de.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = kyc_de.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,9 +131,8 @@
 				4CAE8C1F2E2FCDA700B69BA8 /* Models */,
 				4CAE8C162E2FCC0700B69BA8 /* JSONs */,
 				4CAE8C032E2FCBFC00B69BA8 /* Assets.xcassets */,
-				4CAE8C042E2FCBFC00B69BA8 /* ContentView.swift */,
-				4CAE8C052E2FCBFC00B69BA8 /* Info.plist */,
 				4CAE8C062E2FCBFC00B69BA8 /* kycFlowApp.swift */,
+				4CE01A5C2E2FE91B009174E7 /* kycFlowUI */,
 			);
 			path = kycFlow;
 			sourceTree = "<group>";
@@ -144,7 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				4CAE8C1D2E2FCCFA00B69BA8 /* kyc_tr.json */,
-				4CAE8C1B2E2FCCA100B69BA8 /* kyc_de.json */,
+				4CF331B22E302CCB0080D0A4 /* kyc_de.json */,
 				4CAE8C172E2FCC1000B69BA8 /* kyc_nl.json */,
 				4CAE8C072E2FCBFC00B69BA8 /* Manifest.json */,
 			);
@@ -163,10 +177,50 @@
 		4CAE8C262E2FD55100B69BA8 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				4CF3319E2E30165F0080D0A4 /* AppRouter.swift */,
 				4CAE8C272E2FD55E00B69BA8 /* DataDecoder.swift */,
 				4CAE8C242E2FD43E00B69BA8 /* LoadData.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		4CE01A5C2E2FE91B009174E7 /* kycFlowUI */ = {
+			isa = PBXGroup;
+			children = (
+				4CF331AC2E3027E20080D0A4 /* Common */,
+				4CF331A52E3022060080D0A4 /* CountrySelection */,
+				4CF331A22E3017BE0080D0A4 /* Form */,
+				4CAE8C042E2FCBFC00B69BA8 /* RootView.swift */,
+				4C917D792E303B11007817EB /* Launch Screen.storyboard */,
+			);
+			path = kycFlowUI;
+			sourceTree = "<group>";
+		};
+		4CF331A22E3017BE0080D0A4 /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				4CF331A32E3017C50080D0A4 /* FormViewModel.swift */,
+				4CF331A02E3017950080D0A4 /* FormView.swift */,
+			);
+			path = Form;
+			sourceTree = "<group>";
+		};
+		4CF331A52E3022060080D0A4 /* CountrySelection */ = {
+			isa = PBXGroup;
+			children = (
+				4CF331A62E3022220080D0A4 /* CountryPickerCardView.swift */,
+				4CE01A5D2E2FE929009174E7 /* CountrySelectionView.swift */,
+			);
+			path = CountrySelection;
+			sourceTree = "<group>";
+		};
+		4CF331AC2E3027E20080D0A4 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				4CF331AD2E3027FD0080D0A4 /* HeaderView.swift */,
+				4CF331A82E30236B0080D0A4 /* PrimaryButtonView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,10 +334,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C917D7A2E303B11007817EB /* Launch Screen.storyboard in Resources */,
+				4CF331B32E302CCB0080D0A4 /* kyc_de.json in Resources */,
 				4CAE8C0B2E2FCBFC00B69BA8 /* Assets.xcassets in Resources */,
 				4CAE8C0D2E2FCBFC00B69BA8 /* Manifest.json in Resources */,
-				4CAE8C182E2FCC2500B69BA8 /* kyc_nl.json in Resources */,
 				4CAE8C1E2E2FCD0200B69BA8 /* kyc_tr.json in Resources */,
+				4CF331AF2E302BA90080D0A4 /* kyc_nl.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,13 +365,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CE01A5B2E2FE494009174E7 /* ConfigurationManager.swift in Sources */,
+				4CE01A5E2E2FE932009174E7 /* CountrySelectionView.swift in Sources */,
 				4CAE8C232E2FCE5500B69BA8 /* KycCountryInfo.swift in Sources */,
 				4CAE8C282E2FD56200B69BA8 /* DataDecoder.swift in Sources */,
 				4CAE8C212E2FCDB800B69BA8 /* CountryInfo.swift in Sources */,
 				4CAE8C252E2FD44000B69BA8 /* LoadData.swift in Sources */,
-				4CAE8C092E2FCBFC00B69BA8 /* ContentView.swift in Sources */,
+				4CF331A42E3017C80080D0A4 /* FormViewModel.swift in Sources */,
+				4CAE8C092E2FCBFC00B69BA8 /* RootView.swift in Sources */,
 				4CAE8C0A2E2FCBFC00B69BA8 /* kycFlowApp.swift in Sources */,
-				4CAE8C1C2E2FCCA400B69BA8 /* kyc_de.json in Sources */,
+				4CF3319F2E3016620080D0A4 /* AppRouter.swift in Sources */,
+				4CF331AE2E3028050080D0A4 /* HeaderView.swift in Sources */,
+				4CF331A72E3022300080D0A4 /* CountryPickerCardView.swift in Sources */,
+				4CF331A12E30179A0080D0A4 /* FormView.swift in Sources */,
+				4CF331A92E3023710080D0A4 /* PrimaryButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,8 +547,10 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Meridian;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -514,8 +578,10 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Meridian;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

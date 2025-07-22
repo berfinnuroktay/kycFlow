@@ -1,14 +1,14 @@
 import Foundation
 
 // Full kyc config for a country
-struct KycCountryInfo: Decodable {
+struct KycCountryInfo: Decodable, Hashable {
 
     let country: String
     let fields: [ConfigField]
 }
 
 // Config field representation
-struct ConfigField: Decodable, Identifiable {
+struct ConfigField: Decodable, Identifiable, Hashable {
 
     let id: String
     let label: String
@@ -18,7 +18,7 @@ struct ConfigField: Decodable, Identifiable {
 }
 
 // Validation information for a given field
-struct FieldValidation: Decodable {
+struct FieldValidation: Decodable, Hashable {
 
     let regex: String?
     let message: String?
