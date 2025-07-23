@@ -4,6 +4,9 @@ struct FormFieldView: View {
 
     @ObservedObject var viewModel: FormFieldItemViewModel
 
+    @State private var calendarId: Int = 0
+    @State private var showPicker: Bool = false
+
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
 
@@ -52,6 +55,11 @@ private extension FormFieldView {
         )
         //.labelsHidden()
             .disabled(viewModel.isReadOnly)
+            .id(calendarId)
+            .onChange(of: dateBinding.wrappedValue) {
+              calendarId += 1
+            }
+            .datePickerStyle(.wheel)
     }
 
     @ViewBuilder
@@ -63,6 +71,7 @@ private extension FormFieldView {
             }
         }
         .font(.headline)
+        .foregroundColor(.white.opacity(0.8))
     }
 
     var dateBinding: Binding<Date> {

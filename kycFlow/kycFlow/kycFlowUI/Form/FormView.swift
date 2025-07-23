@@ -5,15 +5,19 @@ struct FormView: View {
     @StateObject var viewModel: FormViewModel
 
     var body: some View {
-        Form {
+
+        ZStack {
+            linearGradientBackground
+        }
+        ScrollView {
             ForEach(viewModel.fieldViewModels) { fieldViewModel in
                 FormFieldView(viewModel: fieldViewModel)
             }
 
-            Button("Submit") {
-                viewModel.onTapSubmitButton()
-            }
+            PrimaryButton(title: "Submit", action: {viewModel.onTapSubmitButton()})
+                .disabled(!viewModel.isSubmitEnabled)
         }
+        .onAppear(perform: UIApplication.shared.addTapGestureRecognizer)
         .navigationTitle("\(viewModel.countryConfig.country) KYC Form")
         .alert(
             "Submission Successful",
@@ -37,4 +41,15 @@ private extension FormView {
             viewModel.onTapAlertCancel()
         }
     }
+
+    @ViewBuilder
+    var linearGradientBackground: some View {
+        LinearGradient(
+            gradient: Gradient(colors: [.blackHowl, .tuna]),
+            startPoint: .top,
+            endPoint: .bottom
+        )
+        .ignoresSafeArea()
+    }
 }
+

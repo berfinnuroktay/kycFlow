@@ -36,7 +36,7 @@ enum ConfigFieldType: String, Decodable {
         case .date:
                 .default
         case .number:
-                .numberPad
+                .decimalPad
         }
     }
 }
