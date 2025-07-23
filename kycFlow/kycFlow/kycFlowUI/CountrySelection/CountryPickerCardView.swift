@@ -6,27 +6,33 @@ struct CountryPickerCardView: View {
     let isSelected: Bool
 
     var body: some View {
-        HStack {
-            Text(country.name)
-                .font(.headline)
-                .foregroundColor(isSelected ? .white : .black)
+        ZStack {
+            RoundedRectangle(cornerRadius: 12)
+                            // We animate its color, which is a much more stable operation.
+                            .foregroundStyle(isSelected ? Color.accentColor : .white)
 
-            Spacer()
+            HStack {
+                Text(country.name)
+                    .font(.headline)
+                    .foregroundColor(isSelected ? .white : .black)
 
-            Image(systemName: "checkmark.circle.fill")
-                .font(.title2)
-                .foregroundColor(.white)
-                .opacity(isSelected ? 1 : 0)
+                Spacer()
+
+                Image(systemName: "checkmark.circle.fill")
+                    .font(.title2)
+                    .foregroundColor(.white)
+                    .opacity(isSelected ? 1 : 0)
+            }
+            .padding()
+            //.background(isSelected ? accentolor : .white)
+            .cornerRadius(12)
         }
-        .padding()
-        .background(isSelected ? .accent : .white)
-        .cornerRadius(12)
-        .animation(
-            .spring(
-                response: 0.3,
-                dampingFraction: 0.7
-            ),
-            value: isSelected
-        )
+//        .animation(
+//            .spring(
+//                response: 0.3,
+//                dampingFraction: 0.7
+//            ),
+//            value: isSelected
+//        )
     }
 }

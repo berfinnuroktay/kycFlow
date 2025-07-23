@@ -20,6 +20,8 @@
 		4CAE8C232E2FCE5500B69BA8 /* KycCountryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE8C222E2FCE4C00B69BA8 /* KycCountryInfo.swift */; };
 		4CAE8C252E2FD44000B69BA8 /* LoadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE8C242E2FD43E00B69BA8 /* LoadData.swift */; };
 		4CAE8C282E2FD56200B69BA8 /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAE8C272E2FD55E00B69BA8 /* DataDecoder.swift */; };
+		4CD65D882E304D700063B253 /* FormFieldItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD65D872E304D680063B253 /* FormFieldItemViewModel.swift */; };
+		4CD65D8A2E3051410063B253 /* FormFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD65D892E30513C0063B253 /* FormFieldView.swift */; };
 		4CE01A5B2E2FE494009174E7 /* ConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE01A5A2E2FE489009174E7 /* ConfigurationManager.swift */; };
 		4CE01A5E2E2FE932009174E7 /* CountrySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE01A5D2E2FE929009174E7 /* CountrySelectionView.swift */; };
 		4CF3319F2E3016620080D0A4 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF3319E2E30165F0080D0A4 /* AppRouter.swift */; };
@@ -67,6 +69,8 @@
 		4CAE8C222E2FCE4C00B69BA8 /* KycCountryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KycCountryInfo.swift; sourceTree = "<group>"; };
 		4CAE8C242E2FD43E00B69BA8 /* LoadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadData.swift; sourceTree = "<group>"; };
 		4CAE8C272E2FD55E00B69BA8 /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
+		4CD65D872E304D680063B253 /* FormFieldItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldItemViewModel.swift; sourceTree = "<group>"; };
+		4CD65D892E30513C0063B253 /* FormFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldView.swift; sourceTree = "<group>"; };
 		4CE01A5A2E2FE489009174E7 /* ConfigurationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationManager.swift; sourceTree = "<group>"; };
 		4CE01A5D2E2FE929009174E7 /* CountrySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionView.swift; sourceTree = "<group>"; };
 		4CF3319E2E30165F0080D0A4 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
@@ -199,6 +203,8 @@
 		4CF331A22E3017BE0080D0A4 /* Form */ = {
 			isa = PBXGroup;
 			children = (
+				4CD65D892E30513C0063B253 /* FormFieldView.swift */,
+				4CD65D872E304D680063B253 /* FormFieldItemViewModel.swift */,
 				4CF331A32E3017C50080D0A4 /* FormViewModel.swift */,
 				4CF331A02E3017950080D0A4 /* FormView.swift */,
 			);
@@ -365,9 +371,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CE01A5B2E2FE494009174E7 /* ConfigurationManager.swift in Sources */,
+				4CD65D8A2E3051410063B253 /* FormFieldView.swift in Sources */,
 				4CE01A5E2E2FE932009174E7 /* CountrySelectionView.swift in Sources */,
 				4CAE8C232E2FCE5500B69BA8 /* KycCountryInfo.swift in Sources */,
 				4CAE8C282E2FD56200B69BA8 /* DataDecoder.swift in Sources */,
+				4CD65D882E304D700063B253 /* FormFieldItemViewModel.swift in Sources */,
 				4CAE8C212E2FCDB800B69BA8 /* CountryInfo.swift in Sources */,
 				4CAE8C252E2FD44000B69BA8 /* LoadData.swift in Sources */,
 				4CF331A42E3017C80080D0A4 /* FormViewModel.swift in Sources */,

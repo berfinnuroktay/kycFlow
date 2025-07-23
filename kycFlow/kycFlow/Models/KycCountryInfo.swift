@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 // Full kyc config for a country
 struct KycCountryInfo: Decodable, Hashable {
@@ -26,5 +27,16 @@ struct FieldValidation: Decodable, Hashable {
 
 // Enum for different field types
 enum ConfigFieldType: String, Decodable {
-    case text, date
+    case text, date, number
+
+    var keyboardType: UIKeyboardType {
+        switch self {
+        case .text:
+                .default
+        case .date:
+                .default
+        case .number:
+                .numberPad
+        }
+    }
 }

@@ -52,17 +52,17 @@ private extension CountrySelectionView {
         ScrollView {
             VStack(spacing: 12) {
                 ForEach(configManager.countryList) { country in
-                    Button(
-                        action: {
-                            if selectedCountryId == country.id {
-                                selectedCountryId = nil
-                            } else {
-                                selectedCountryId = country.id
+                    CountryPickerCardView(country: country, isSelected: selectedCountryId == country.id)
+                        .onTapGesture {
+                            // The action is now directly on the card.
+                            withAnimation {
+                                if selectedCountryId == country.id {
+                                    selectedCountryId = nil
+                                } else {
+                                    selectedCountryId = country.id
+                                }
                             }
-                        }, label: {
-                            CountryPickerCardView(country: country, isSelected: selectedCountryId == country.id)
                         }
-                    )
                 }
             }
         }

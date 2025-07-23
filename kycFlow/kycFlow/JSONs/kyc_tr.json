@@ -16,7 +16,7 @@
         {
             "id": "steuer_id",
             "label": "TC Kimlik Numarası",
-            "type": "text",
+            "type": "number",
             "required": true,
             "validation": {
                 "regex": "^\\d{11}$",
