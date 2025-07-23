@@ -2,6 +2,7 @@ import SwiftUI
 
 struct FormView: View {
 
+    @EnvironmentObject private var router: AppRouter
     @StateObject var viewModel: FormViewModel
 
     var body: some View {
@@ -9,24 +10,27 @@ struct FormView: View {
         ZStack {
             linearGradientBackground
 
-            VStack {
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 20) {
-                        ForEach(viewModel.fieldViewModels) { fieldViewModel in
-                            FormFieldView(viewModel: fieldViewModel)
-                        }
-                    }
-                    .padding(16)
-                }
-                .scrollIndicators(.hidden)
-
-                PrimaryButton(title: "Submit", action: viewModel.onTapSubmitButton)
-                    .disabled(!viewModel.isSubmitEnabled)
-                    .padding()
+            if viewModel.isLoading {
+                ProgressView()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else {
+                contentView
             }
         }
         .onAppear(perform: UIApplication.shared.addTapGestureRecognizer)
         .navigationTitle("\(viewModel.countryConfig.country) KYC Form")
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button(action: {
+                    router.path.removeLast()
+                }) {
+                    Image(systemName: "chevron.left")
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white) // Ensure high contrast
+                }
+            }
+        }
         .alert(
             "Submission Successful",
             isPresented: $viewModel.isSubmissionResultPresented,
@@ -37,6 +41,25 @@ struct FormView: View {
 }
 
 private extension FormView {
+
+    @ViewBuilder
+    var contentView: some View {
+        VStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    ForEach(viewModel.fieldViewModels) { fieldViewModel in
+                        FormFieldView(viewModel: fieldViewModel)
+                    }
+                }
+                .padding(16)
+            }
+            .scrollIndicators(.hidden)
+
+            PrimaryButton(title: "Submit", action: viewModel.onTapSubmitButton)
+                .disabled(!viewModel.isSubmitEnabled)
+                .padding()
+        }
+    }
 
     @ViewBuilder
     var alertMessage: some View {

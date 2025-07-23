@@ -10,14 +10,18 @@ final class FormViewModel: ObservableObject {
     @Published var submissionResult: String? = nil
     @Published var isSubmissionResultPresented: Bool = false
     @Published var isSubmitEnabled: Bool = false
+    @Published var isLoading: Bool = true
 
+    private let fetcherFactory: UserProfileFetcherFactory
     private var cancellables = Set<AnyCancellable>()
 
-    init(countryConfig: KycCountryInfo) {
+    init(countryConfig: KycCountryInfo, fetcherFactory: UserProfileFetcherFactory) {
         self.countryConfig = countryConfig
+        self.fetcherFactory = fetcherFactory
         self.fieldViewModels = countryConfig.fields.map { FormFieldItemViewModel(field: $0) }
 
         observeFieldChanges()
+        handleSpecialCases()
     }
 
     func onTapSubmitButton() {
@@ -64,25 +68,70 @@ private extension FormViewModel {
         }
     }
 
-    private func observeFieldChanges() {
-        // Create a publisher that fires whenever ANY of the field's `$value` publishers change.
+    func observeFieldChanges() {
+        // Publisher that fires whenever any of the field's value change
         let allValuesPublisher = Publishers.MergeMany(
             fieldViewModels.map { $0.$value }
         )
 
         allValuesPublisher
-        // For each change, re-evaluate the entire form's validity.
+        // For each change, reevaluate form's validity
             .map { [weak self] _ -> Bool in
-                // The form is valid if every field satisfies the condition:
-                // It's NOT required OR its value is NOT empty.
-                self?.fieldViewModels.allSatisfy { vm in
-                    !vm.isRequired || !vm.value.trimmingCharacters(in: .whitespaces).isEmpty
-                } ?? false
+                guard let self = self else { return false }
+                // Every field is not required or value is not empty
+                return self.fieldViewModels
+                    .map { self.checkFieldIsValidForSubmission(viewModel: $0)  }
+                    .allSatisfy { $0 }
             }
-        // Assign the boolean result directly to our @Published property.
             .assign(to: \.isSubmitEnabled, on: self)
             .store(in: &cancellables)
     }
+
+    func checkFieldIsValidForSubmission(viewModel: FormFieldItemViewModel) -> Bool {
+
+        let notRequired = !viewModel.isRequired
+        let notEmpty = !viewModel.value.trimmingCharacters(in: .whitespaces).isEmpty
+        return notRequired || notEmpty
+    }
+
+    private func handleSpecialCases() {
+           // Ask the factory if there's a special fetcher for this country.
+           if let fetcher = fetcherFactory.makeFetcher(for: countryConfig.country) {
+               Task {
+                   await fetchPrefilledData(using: fetcher)
+               }
+           } else {
+               self.isLoading = false
+           }
+       }
+
+    /// Fetches data and updates the relevant fields to be read-only.
+        private func fetchPrefilledData(using fetcher: UserProfileFetcher) async {
+
+            defer {
+                self.isLoading = false
+            }
+            // Temporarily disable all fields to indicate a loading state.
+            fieldViewModels.forEach { $0.isReadOnly = true }
+
+            if let prefilledData = await fetcher.fetchUserProfile() {
+                // Loop through all our form fields.
+                for fieldVM in fieldViewModels {
+                    // Check if the fetched data contains a value for this field's ID.
+                    if let prefilledValue = prefilledData[fieldVM.id] {
+                        // If it does, update the value and keep it read-only.
+                        fieldVM.value = prefilledValue
+                        fieldVM.isReadOnly = true
+                    } else {
+                        // If not, make sure the field is editable.
+                        fieldVM.isReadOnly = false
+                    }
+                }
+            } else {
+                // If the fetch fails for any reason, make all fields editable again.
+                fieldViewModels.forEach { $0.isReadOnly = false }
+            }
+        }
 }
 
 extension UIApplication {

@@ -9,7 +9,7 @@ struct FormFieldView: View {
     @State private var showDatePicker = false
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 8) {
 
             fieldHeader
 
@@ -27,15 +27,19 @@ struct FormFieldView: View {
             .cornerRadius(8)
             .foregroundColor(.white)
             .tint(.white)
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(viewModel.shouldShowError ? Color.red : Color.clear, lineWidth: 2)
+            )
 
-            Text(viewModel.validationError ?? "")
-                .font(.caption)
-                .foregroundColor(.red)
-                .opacity(viewModel.validationError == nil ? 1 : 0)
-                .transition(.opacity.animation(.easeIn))
+            if viewModel.shouldShowError {
+                Text(viewModel.validationError ?? "")
+                    .font(.caption)
+                    .foregroundColor(.red)
+                    .transition(.opacity.animation(.easeIn))
+            }
 
         }
-        .padding(.vertical, 5)
         .onChange(of: viewModel.value) {
             if viewModel.validationError != nil {
                 viewModel.validationError = nil
@@ -101,7 +105,7 @@ private extension FormFieldView {
                 )
                 .datePickerStyle(.wheel)
                 .labelsHidden()
-                .colorInvert()
+                //.colorInvert()
                 .transition(.opacity.combined(with: .scale))
             }
         }

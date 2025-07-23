@@ -3,17 +3,19 @@ import SwiftUI
 @MainActor
 final class FormFieldItemViewModel: ObservableObject, Identifiable {
 
-    // Configuration
     let id: String
     let label: String
     let type: ConfigFieldType
     let isRequired: Bool
     private let validationRules: FieldValidation?
 
-    // Live State
-    @Published var value: String = "" // TODO: Could be date, may need fix later
+    @Published var value: String = ""
     @Published var validationError: String? = nil
     @Published var isReadOnly: Bool = false
+
+    var shouldShowError: Bool {
+        validationError != nil
+    }
     let formatter = DateFormatter()
 
     init(field: ConfigField) {

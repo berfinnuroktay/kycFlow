@@ -21,7 +21,10 @@ private extension RootView {
 
         switch destination {
         case .countryForm(let countryConfig):
-            FormView(viewModel: FormViewModel(countryConfig: countryConfig))
+
+            let factory = UserProfileFetcherFactory()
+            let viewModel = FormViewModel(countryConfig: countryConfig, fetcherFactory: factory)
+            FormView(viewModel: viewModel)
         }
     }
 }

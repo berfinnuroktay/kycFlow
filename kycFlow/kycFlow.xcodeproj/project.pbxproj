@@ -24,6 +24,8 @@
 		4CD65D8A2E3051410063B253 /* FormFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD65D892E30513C0063B253 /* FormFieldView.swift */; };
 		4CE01A5B2E2FE494009174E7 /* ConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE01A5A2E2FE489009174E7 /* ConfigurationManager.swift */; };
 		4CE01A5E2E2FE932009174E7 /* CountrySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE01A5D2E2FE929009174E7 /* CountrySelectionView.swift */; };
+		4CEF41702E3168980039E1BC /* UserProfileFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEF416F2E3168900039E1BC /* UserProfileFetcher.swift */; };
+		4CEF41722E31766C0039E1BC /* UserProfileFetcherFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEF41712E3176620039E1BC /* UserProfileFetcherFactory.swift */; };
 		4CF3319F2E3016620080D0A4 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF3319E2E30165F0080D0A4 /* AppRouter.swift */; };
 		4CF331A12E30179A0080D0A4 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF331A02E3017950080D0A4 /* FormView.swift */; };
 		4CF331A42E3017C80080D0A4 /* FormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF331A32E3017C50080D0A4 /* FormViewModel.swift */; };
@@ -73,6 +75,8 @@
 		4CD65D892E30513C0063B253 /* FormFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldView.swift; sourceTree = "<group>"; };
 		4CE01A5A2E2FE489009174E7 /* ConfigurationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationManager.swift; sourceTree = "<group>"; };
 		4CE01A5D2E2FE929009174E7 /* CountrySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountrySelectionView.swift; sourceTree = "<group>"; };
+		4CEF416F2E3168900039E1BC /* UserProfileFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileFetcher.swift; sourceTree = "<group>"; };
+		4CEF41712E3176620039E1BC /* UserProfileFetcherFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileFetcherFactory.swift; sourceTree = "<group>"; };
 		4CF3319E2E30165F0080D0A4 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		4CF331A02E3017950080D0A4 /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 		4CF331A32E3017C50080D0A4 /* FormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewModel.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 		4CAE8C082E2FCBFC00B69BA8 /* kycFlow */ = {
 			isa = PBXGroup;
 			children = (
+				4CEF41732E31766F0039E1BC /* Network */,
 				4CE01A5A2E2FE489009174E7 /* ConfigurationManager.swift */,
 				4CAE8C262E2FD55100B69BA8 /* Utility */,
 				4CAE8C1F2E2FCDA700B69BA8 /* Models */,
@@ -198,6 +203,15 @@
 				4C917D792E303B11007817EB /* Launch Screen.storyboard */,
 			);
 			path = kycFlowUI;
+			sourceTree = "<group>";
+		};
+		4CEF41732E31766F0039E1BC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4CEF41712E3176620039E1BC /* UserProfileFetcherFactory.swift */,
+				4CEF416F2E3168900039E1BC /* UserProfileFetcher.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		4CF331A22E3017BE0080D0A4 /* Form */ = {
@@ -379,8 +393,10 @@
 				4CAE8C212E2FCDB800B69BA8 /* CountryInfo.swift in Sources */,
 				4CAE8C252E2FD44000B69BA8 /* LoadData.swift in Sources */,
 				4CF331A42E3017C80080D0A4 /* FormViewModel.swift in Sources */,
+				4CEF41722E31766C0039E1BC /* UserProfileFetcherFactory.swift in Sources */,
 				4CAE8C092E2FCBFC00B69BA8 /* RootView.swift in Sources */,
 				4CAE8C0A2E2FCBFC00B69BA8 /* kycFlowApp.swift in Sources */,
+				4CEF41702E3168980039E1BC /* UserProfileFetcher.swift in Sources */,
 				4CF3319F2E3016620080D0A4 /* AppRouter.swift in Sources */,
 				4CF331AE2E3028050080D0A4 /* HeaderView.swift in Sources */,
 				4CF331A72E3022300080D0A4 /* CountryPickerCardView.swift in Sources */,
