@@ -23,6 +23,10 @@ struct FieldValidation: Decodable, Hashable {
 
     let regex: String?
     let message: String?
+    let minLength: Int?
+    let maxLength: Int?
+    let minValue: Int?
+    let maxValue: Int?
 }
 
 // Enum for different field types

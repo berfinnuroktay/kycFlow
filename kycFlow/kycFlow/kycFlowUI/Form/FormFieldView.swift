@@ -8,29 +8,19 @@ struct FormFieldView: View {
     @State private var showPicker: Bool = false
     @State private var showDatePicker = false
 
+    var dateBinding: Binding<Date> {
+        Binding(
+            get: { return viewModel.formatter.date(from: viewModel.value) ?? Date() },
+            set: { viewModel.value = viewModel.formatter.string(from: $0) }
+        )
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
 
             fieldHeader
 
-            Group {
-                switch viewModel.type {
-                case .text, .number:
-                    textField
-                case .date:
-                    dateField
-                }
-            }
-            .disabled(viewModel.isReadOnly)
-            .padding(12)
-            .background(Color.gray.opacity(0.2))
-            .cornerRadius(8)
-            .foregroundColor(.white)
-            .tint(.white)
-            .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(viewModel.shouldShowError ? Color.red : Color.clear, lineWidth: 2)
-            )
+            inputFieldView
 
             if viewModel.shouldShowError {
                 Text(viewModel.validationError ?? "")
@@ -69,20 +59,8 @@ private extension FormFieldView {
         .foregroundColor(.white.opacity(0.8))
     }
 
-    var dateBinding: Binding<Date> {
-        Binding(
-            get: {
-                return viewModel.formatter.date(from: viewModel.value) ?? Date()
-            },
-            set: {
-                viewModel.value = viewModel.formatter.string(from: $0)
-
-            }
-        )
-    }
-
     @ViewBuilder
-    private var dateField: some View {
+    var dateField: some View {
         VStack {
             Button(action: {
                 withAnimation {
@@ -109,5 +87,27 @@ private extension FormFieldView {
                 .transition(.opacity.combined(with: .scale))
             }
         }
+    }
+
+    @ViewBuilder
+    var inputFieldView: some View {
+        Group {
+            switch viewModel.type {
+            case .text, .number:
+                textField
+            case .date:
+                dateField
+            }
+        }
+        .disabled(viewModel.isReadOnly)
+        .padding(12)
+        .background(Color.gray.opacity(0.2))
+        .cornerRadius(8)
+        .foregroundColor(.white)
+        .tint(.white)
+        .overlay(
+            RoundedRectangle(cornerRadius: 8)
+                .stroke(viewModel.shouldShowError ? Color.red : Color.clear, lineWidth: 2)
+        )
     }
 }

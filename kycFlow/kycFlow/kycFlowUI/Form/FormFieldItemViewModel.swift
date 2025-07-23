@@ -3,6 +3,7 @@ import SwiftUI
 @MainActor
 final class FormFieldItemViewModel: ObservableObject, Identifiable {
 
+    // MARK: - Properties
     let id: String
     let label: String
     let type: ConfigFieldType
@@ -16,6 +17,7 @@ final class FormFieldItemViewModel: ObservableObject, Identifiable {
     var shouldShowError: Bool {
         validationError != nil
     }
+
     let formatter = DateFormatter()
 
     init(field: ConfigField) {
@@ -31,35 +33,74 @@ final class FormFieldItemViewModel: ObservableObject, Identifiable {
         }
     }
 
-    /// Validates the field's current value against its rules.
-    /// - Returns: `true` if the field is valid, `false` otherwise.
     func validate() -> Bool {
-        // Clear previous error
+        // Always start by clearing any previous validation error.
         validationError = nil
-
         let trimmedValue = value.trimmingCharacters(in: .whitespaces)
 
-        // 1. Check for required fields
-        if isRequired && trimmedValue.isEmpty {
-            validationError = "This field is required."
+        // The main validation function now reads like a clear checklist.
+        guard
+            validateRequired(value: trimmedValue),
+            validateLength(value: trimmedValue),
+            validateValue(value: trimmedValue),
+            validateRegex(value: trimmedValue)
+        else {
             return false
         }
 
-        // An empty, non-required field is always valid.
-        if !isRequired && trimmedValue.isEmpty {
-            return true
-        }
+        return true
+    }
+}
 
-        // 2. Check regex validation
-        if let regexPattern = validationRules?.regex {
-            let predicate = NSPredicate(format: "SELF MATCHES %@", regexPattern)
-            if !predicate.evaluate(with: trimmedValue) {
-                validationError = validationRules?.message ?? "Invalid format."
-                return false
-            }
-        }
+private extension FormFieldItemViewModel {
 
-        // All checks passed.
+    func validateRequired(value: String) -> Bool {
+        if isRequired && value.isEmpty {
+            validationError = "This field is required."
+            return false
+        }
+        return true
+    }
+
+    func validateLength(value: String) -> Bool {
+        // Skip if the value is empty, it is handled in validateRequired
+        guard !value.isEmpty else { return true }
+
+        if let minLength = validationRules?.minLength, value.count < minLength {
+            validationError = validationRules?.message ?? "Must be at least \(minLength) characters."
+            return false
+        }
+        if let maxLength = validationRules?.maxLength, value.count > maxLength {
+            validationError = validationRules?.message ?? "Cannot exceed \(maxLength) characters."
+            return false
+        }
+        return true
+    }
+
+    func validateValue(value: String) -> Bool {
+        // Skip if the value is empty or not a number
+        guard !value.isEmpty, let numberValue = Int(value) else { return true }
+
+        if let minValue = validationRules?.minValue, numberValue < minValue {
+            validationError = validationRules?.message ?? "Value must be at least \(minValue)."
+            return false
+        }
+        if let maxValue = validationRules?.maxValue, numberValue > maxValue {
+            validationError = validationRules?.message ?? "Value cannot exceed \(maxValue)."
+            return false
+        }
+        return true
+    }
+
+    private func validateRegex(value: String) -> Bool {
+        // Skip if the value is empty or there's no regex
+        guard !value.isEmpty, let regexPattern = validationRules?.regex else { return true }
+
+        let predicate = NSPredicate(format: "SELF MATCHES %@", regexPattern)
+        if !predicate.evaluate(with: value) {
+            validationError = validationRules?.message ?? "Invalid format."
+            return false
+        }
         return true
     }
 }

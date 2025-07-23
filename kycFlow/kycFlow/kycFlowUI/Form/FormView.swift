@@ -20,17 +20,7 @@ struct FormView: View {
         .onAppear(perform: UIApplication.shared.addTapGestureRecognizer)
         .navigationTitle("\(viewModel.countryConfig.country) KYC Form")
         .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button(action: {
-                    router.path.removeLast()
-                }) {
-                    Image(systemName: "chevron.left")
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white) // Ensure high contrast
-                }
-            }
-        }
+        .toolbar(content: { toolbarContent })
         .alert(
             "Submission Successful",
             isPresented: $viewModel.isSubmissionResultPresented,
@@ -81,6 +71,19 @@ private extension FormView {
             endPoint: .bottom
         )
         .ignoresSafeArea()
+    }
+
+    @ToolbarContentBuilder
+    var toolbarContent: some ToolbarContent {
+        ToolbarItem(placement: .topBarLeading) {
+            Button(action: {
+                router.path.removeLast()
+            }) {
+                Image(systemName: "chevron.left")
+                    .fontWeight(.semibold)
+                    .foregroundColor(.white)
+            }
+        }
     }
 }
 

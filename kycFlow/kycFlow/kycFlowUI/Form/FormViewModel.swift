@@ -35,6 +35,7 @@ final class FormViewModel: ObservableObject {
 
 }
 
+// MARK: - Form related helpers
 private extension FormViewModel {
 
     /// Coordinates the validation of all fields and submits the data if valid.
@@ -69,13 +70,14 @@ private extension FormViewModel {
     }
 
     func observeFieldChanges() {
+
         // Publisher that fires whenever any of the field's value change
         let allValuesPublisher = Publishers.MergeMany(
             fieldViewModels.map { $0.$value }
         )
 
-        allValuesPublisher
         // For each change, reevaluate form's validity
+        allValuesPublisher
             .map { [weak self] _ -> Bool in
                 guard let self = self else { return false }
                 // Every field is not required or value is not empty
@@ -93,62 +95,38 @@ private extension FormViewModel {
         let notEmpty = !viewModel.value.trimmingCharacters(in: .whitespaces).isEmpty
         return notRequired || notEmpty
     }
+}
 
-    private func handleSpecialCases() {
-           // Ask the factory if there's a special fetcher for this country.
-           if let fetcher = fetcherFactory.makeFetcher(for: countryConfig.country) {
-               Task {
-                   await fetchPrefilledData(using: fetcher)
-               }
-           } else {
-               self.isLoading = false
-           }
-       }
+// MARK: - Network related helpers
+private extension FormViewModel {
 
-    /// Fetches data and updates the relevant fields to be read-only.
-        private func fetchPrefilledData(using fetcher: UserProfileFetcher) async {
-
-            defer {
-                self.isLoading = false
+    func handleSpecialCases() {
+        // Check if there is a fetcher
+        if let fetcher = fetcherFactory.makeFetcher(for: countryConfig.country) {
+            Task {
+                await fetchPrefilledData(using: fetcher)
             }
-            // Temporarily disable all fields to indicate a loading state.
-            fieldViewModels.forEach { $0.isReadOnly = true }
+        } else {
+            self.isLoading = false
+        }
+    }
 
-            if let prefilledData = await fetcher.fetchUserProfile() {
-                // Loop through all our form fields.
-                for fieldVM in fieldViewModels {
-                    // Check if the fetched data contains a value for this field's ID.
-                    if let prefilledValue = prefilledData[fieldVM.id] {
-                        // If it does, update the value and keep it read-only.
-                        fieldVM.value = prefilledValue
-                        fieldVM.isReadOnly = true
-                    } else {
-                        // If not, make sure the field is editable.
-                        fieldVM.isReadOnly = false
-                    }
+    func fetchPrefilledData(using fetcher: UserProfileFetcher) async {
+
+        defer {
+            self.isLoading = false
+        }
+
+        if let result = await fetcher.fetchUserProfile() {
+            for fieldVM in fieldViewModels {
+                // Check if the field exists in result
+                if let fieldValue = result[fieldVM.id] {
+                    fieldVM.value = fieldValue
+                    fieldVM.isReadOnly = true
+                } else {
+                    fieldVM.isReadOnly = false
                 }
-            } else {
-                // If the fetch fails for any reason, make all fields editable again.
-                fieldViewModels.forEach { $0.isReadOnly = false }
             }
         }
-}
-
-extension UIApplication {
-    func addTapGestureRecognizer() {
-        let scenes = UIApplication.shared.connectedScenes
-        let windowScene = scenes.first as? UIWindowScene
-        guard let window = windowScene?.windows.first else { return }
-        let tapGesture = UITapGestureRecognizer(target: window, action: #selector(UIView.endEditing))
-        tapGesture.requiresExclusiveTouchType = false
-        tapGesture.cancelsTouchesInView = false
-        tapGesture.delegate = self
-        window.addGestureRecognizer(tapGesture)
-    }
-}
-
-extension UIApplication: @retroactive UIGestureRecognizerDelegate {
-    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true // set to `false` if you don't want to detect tap during other gestures
     }
 }
