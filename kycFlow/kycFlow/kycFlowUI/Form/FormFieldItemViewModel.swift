@@ -14,6 +14,7 @@ final class FormFieldItemViewModel: ObservableObject, Identifiable {
     @Published var value: String = "" // TODO: Could be date, may need fix later
     @Published var validationError: String? = nil
     @Published var isReadOnly: Bool = false
+    let formatter = DateFormatter()
 
     init(field: ConfigField) {
         self.id = field.id
@@ -21,6 +22,11 @@ final class FormFieldItemViewModel: ObservableObject, Identifiable {
         self.type = field.type
         self.validationRules = field.validation
         self.isRequired = field.required
+
+        if type == .date {
+            self.formatter.dateFormat = "dd/MM/yyyy"
+            self.value = formatter.string(from: Date())
+        }
     }
 
     /// Validates the field's current value against its rules.

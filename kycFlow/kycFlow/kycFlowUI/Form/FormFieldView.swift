@@ -6,18 +6,27 @@ struct FormFieldView: View {
 
     @State private var calendarId: Int = 0
     @State private var showPicker: Bool = false
+    @State private var showDatePicker = false
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 12) {
 
             fieldHeader
 
-            switch viewModel.type {
-            case .text, .number:
-                textField
-            case .date:
-                datePicker
+            Group {
+                switch viewModel.type {
+                case .text, .number:
+                    textField
+                case .date:
+                    dateField
+                }
             }
+            .disabled(viewModel.isReadOnly)
+            .padding(12)
+            .background(Color.gray.opacity(0.2))
+            .cornerRadius(8)
+            .foregroundColor(.white)
+            .tint(.white)
 
             Text(viewModel.validationError ?? "")
                 .font(.caption)
@@ -41,25 +50,7 @@ private extension FormFieldView {
     @ViewBuilder
     var textField: some View {
         TextField(viewModel.label, text: $viewModel.value)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
             .keyboardType(viewModel.type.keyboardType)
-            .disabled(viewModel.isReadOnly)
-    }
-
-    @ViewBuilder
-    var datePicker: some View {
-        DatePicker(
-            "",
-            selection: dateBinding,
-            displayedComponents: .date
-        )
-        //.labelsHidden()
-            .disabled(viewModel.isReadOnly)
-            .id(calendarId)
-            .onChange(of: dateBinding.wrappedValue) {
-              calendarId += 1
-            }
-            .datePickerStyle(.wheel)
     }
 
     @ViewBuilder
@@ -77,15 +68,42 @@ private extension FormFieldView {
     var dateBinding: Binding<Date> {
         Binding(
             get: {
-                let formatter = DateFormatter()
-                formatter.dateFormat = "dd/MM/yyyy"
-                return formatter.date(from: viewModel.value) ?? Date()
+                return viewModel.formatter.date(from: viewModel.value) ?? Date()
             },
             set: {
-                let formatter = DateFormatter()
-                formatter.dateFormat = "dd/MM/yyyy"
-                viewModel.value = formatter.string(from: $0)
+                viewModel.value = viewModel.formatter.string(from: $0)
+
             }
         )
+    }
+
+    @ViewBuilder
+    private var dateField: some View {
+        VStack {
+            Button(action: {
+                withAnimation {
+                    showDatePicker.toggle()
+                }
+            }) {
+                HStack {
+                    Text(viewModel.value)
+                    Spacer()
+                    Image(systemName: "calendar")
+                        .foregroundColor(.gray)
+                }
+            }
+
+            if showDatePicker {
+                DatePicker(
+                    "",
+                    selection: dateBinding,
+                    displayedComponents: .date
+                )
+                .datePickerStyle(.wheel)
+                .labelsHidden()
+                .colorInvert()
+                .transition(.opacity.combined(with: .scale))
+            }
+        }
     }
 }

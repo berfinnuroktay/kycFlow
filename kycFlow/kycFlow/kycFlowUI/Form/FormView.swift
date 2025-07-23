@@ -8,14 +8,22 @@ struct FormView: View {
 
         ZStack {
             linearGradientBackground
-        }
-        ScrollView {
-            ForEach(viewModel.fieldViewModels) { fieldViewModel in
-                FormFieldView(viewModel: fieldViewModel)
-            }
 
-            PrimaryButton(title: "Submit", action: {viewModel.onTapSubmitButton()})
-                .disabled(!viewModel.isSubmitEnabled)
+            VStack {
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 20) {
+                        ForEach(viewModel.fieldViewModels) { fieldViewModel in
+                            FormFieldView(viewModel: fieldViewModel)
+                        }
+                    }
+                    .padding(16)
+                }
+                .scrollIndicators(.hidden)
+
+                PrimaryButton(title: "Submit", action: viewModel.onTapSubmitButton)
+                    .disabled(!viewModel.isSubmitEnabled)
+                    .padding()
+            }
         }
         .onAppear(perform: UIApplication.shared.addTapGestureRecognizer)
         .navigationTitle("\(viewModel.countryConfig.country) KYC Form")
